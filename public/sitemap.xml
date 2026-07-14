@@ -4,12 +4,6 @@
     
         
         <url>
-            <loc>http://localhost:1313/about/</loc>
-        </url>
-        
-    
-        
-        <url>
             <loc>http://localhost:1313/</loc>
             <lastmod>2026-07-14T00:00:00+00:00</lastmod>
         </url>
@@ -17,7 +11,63 @@
     
         
         <url>
+            <loc>http://localhost:1313/tags/abm/</loc>
+            <lastmod>2026-07-14T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>http://localhost:1313/blog/</loc>
+            <lastmod>2026-07-14T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
             <loc>http://localhost:1313/contact/</loc>
+            <lastmod>2026-07-14T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>http://localhost:1313/tags/firstpost/</loc>
+            <lastmod>2026-07-14T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>http://localhost:1313/blog/my-first-post/</loc>
+            <lastmod>2026-07-14T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>http://localhost:1313/tags/phd/</loc>
+            <lastmod>2026-07-14T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>http://localhost:1313/tags/publichealth/</loc>
+            <lastmod>2026-07-14T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>http://localhost:1313/tags/socialnetworks/</loc>
+            <lastmod>2026-07-14T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>http://localhost:1313/tags/</loc>
             <lastmod>2026-07-14T00:00:00+00:00</lastmod>
         </url>
         
@@ -37,12 +87,6 @@
         
         <url>
             <loc>http://localhost:1313/cv/</loc>
-        </url>
-        
-    
-        
-        <url>
-            <loc>http://localhost:1313/tags/</loc>
         </url>
         
     
