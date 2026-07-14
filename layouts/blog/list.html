@@ -1,0 +1,32 @@
+{{ define "main" }}
+<main class="posts">
+  <h1 style="color: #440099; margin-bottom: 5px;">{{ .Title }}</h1>
+  <p style="color: #5e5e5e; margin-bottom: 30px;">[System output: {{ len .Pages }} entries found]</p>
+
+  <!-- terminal listing -->
+  <div style="font-family: monospace; line-height: 2.0;">
+    {{ range .Pages }}
+      <div style="display: flex; flex-wrap: wrap; border-bottom: 1px dashed #222; padding: 8px 0;">
+        <!-- 1. The Date formatted exactly how you liked -->
+        <span style="color: #5e5e5e; width: 100px; margin-right: 20px; flex-shrink: 0;">
+            {{ .Date.Format "02-01-2006" }}
+        </span>
+        
+        <!-- 2. The Title -->
+        <span style="flex-grow: 1; min-width: 250px;">
+          <a href="{{ .Permalink }}" style="color: #440099; text-decoration: none;">
+            {{ .Title }}
+          </a>
+        </span>
+        
+        <!-- 3. Tags (if they exist) -->
+        {{ if .Params.tags }}
+          <span style="color: #444; font-size: 0.9em;">
+            {{ range .Params.tags }}#{{ . }} {{ end }}
+          </span>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

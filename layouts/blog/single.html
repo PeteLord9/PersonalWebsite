@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main class="posts">
+  <article class="post">
+    <!-- Header -->
+    <header class="post-header">
+      <h1 style="color: #440099; margin-bottom: 5px;">{{ .Title }}</h1>
+      <div style="color: #5e5e5e; font-size: 0.9em; margin-bottom: 20px;">
+        {{ .Date.Format "2 Jan. 2006" }}
+      </div>
+    </header>
+
+    <!-- Main Content (Renders paragraphs correctly) -->
+    <div class="post-content" style="line-height: 1.6; margin-bottom: 40px;">
+      {{ .Content }}
+    </div>
+
+    <!-- Footer Disclaimer -->
+    <footer style="margin-top: 40px; border-top: 1px dashed #444; padding-top: 20px;">
+      <p style="font-size: 0.85em; color: #5e5e5e; font-style: italic;">
+        Pete is a PhD student funded by the Wellcome Trust at the University of Sheffield.
+      </p>
+      <a href="/blog/" style="color: #440099;">&larr; Back to all posts</a>
+    </footer>
+  </article>
+</main>
+{{ end }}

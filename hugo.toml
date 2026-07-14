@@ -8,14 +8,11 @@ avatar = "img/face_icon.png"
   description = "Personal website of Peter Lord. Research in Social Networks in Agent-Based Models (ABMs) for public health economics."
   # This is your new custom parameter for the small header icon
   headerAvatar = "img/face_icon.png"
-  # author = "Peter Lord"
+  author = "Peter Lord"
   wellcome_trust_tagline = "Wellcome Trust PhD Researcher in Public Health Economics"
   animateStyle = "animate-fade-up" # Animation style for content
 
 
-[[params.navlinks]]
-  name = "About"
-  url = "/about/"
 
 [[params.navlinks]]
   name = "CV"
@@ -26,6 +23,10 @@ avatar = "img/face_icon.png"
   url = "/research/"
 
 [[params.navlinks]]
+  name = "Blog"
+  url = "/blog/"
+
+[[params.navlinks]]
   name = "Contact"
   url = "/contact/"
 
@@ -33,9 +34,7 @@ avatar = "img/face_icon.png"
   name = "icon"
   url = "#"
 
-[menu]
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about.md"
-    weight = 1
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

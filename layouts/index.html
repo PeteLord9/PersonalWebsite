@@ -13,14 +13,30 @@
     <img src="img/face.png" class="terminal-avatar" alt="Peter Lord">
   </div>
 
-  <!-- Right Side: Your Affiliations Grid -->
-  <div class="affiliations-box">
-    <span class="affiliation-label">AFFILIATIONS</span>
-    <div class="logo-grid">
-      <img src="img/Medium-UOSLogo_Primary_Violet_RGB.jpg" class="affiliation-logo" alt="University Logo">
-      <img src="img/Funded_by_Wellcome_logo_off_Black.png" class="affiliation-logo" alt="Research Lab Logo">
-      <!-- Add as many logo images from your static folder as you need -->
-    </div>
+    <!-- Right Side: Your Affiliations Grid -->
+<div class="affiliations-box">
+  <span class="affiliation-label">AFFILIATIONS</span>
+  <div class="logo-grid">
+    
+    <!-- University Logo Link -->
+    <a href="https://www.sheffield.ac.uk/" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       style="display: inline-block; text-decoration: none !important; border: none !important; outline: none !important; background: none !important; box-shadow: none !important;">
+      <img src="img/Medium-UOSLogo_Primary_Violet_RGB.jpg" class="affiliation-logo" alt="University Logo" style="border: none !important; outline: none !important;">
+    </a>
+
+    <!-- Wellcome Trust Logo Link -->
+    <a href="https://wellcome.org/" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       style="display: inline-block; text-decoration: none !important; border: none !important; outline: none !important; background: none !important; box-shadow: none !important;">
+      <img src="img/Funded_by_Wellcome_logo_off_Black.png" class="affiliation-logo" alt="Research Lab Logo" style="border: none !important; outline: none !important;">
+    </a>
+    
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -28,19 +44,108 @@
 <section class="hero" id="about-hero">
   <div class="boxed">
     <span class="eyebrow">{{ .Site.Params.wellcome_trust_tagline }}</span>
-    <p class="overview">
-    <br>
-      Can integrating empirical information into the generation of social networks contributes to more realistic agent-based models and better public health policy decision making?
-    </p>
-  </div>
+    <div style="border-left: 3px solid #62c4ff; padding-left: 15px; margin: 20px 0; font-family: monospace;">
+      <!-- The Command Prompt -->
+      <span style="color: #62c4ff;">$ mpirun -n 4 python3 phd</span>
+  
+      <!-- The typed output area with a blinking terminal cursor -->
+      <p style="margin-top: 8px; font-style: italic; font-size: 1.1em; line-height: 1.6; min-height: 80px;">
+      <span id="typed-text"></span><span class="terminal-cursor">|</span>
+      </p>
+    </div>
+
+  <!-- Blinking Cursor Styling -->
+  <style>
+    .terminal-cursor {
+      color: #62c4ff;
+      font-weight: bold;
+      animation: blink 1s step-start infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+
+  <!-- Typewriter JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const text = "Can integrating empirical information into the generation of social networks contribute to more realistic agent-based models and better public health policy decision-making?";
+      const delay = 35; // Speed of typing (lower is faster)
+      let i = 0;
+      const target = document.getElementById("typed-text");
+      
+      function typeWriter() {
+        if (i < text.length) {
+          target.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, delay);
+        }
+      }
+      
+      // Start typing after a half-second delay so the user catches the start
+      setTimeout(typeWriter, 500);
+    });
+  </script>
+    </div>
 </section>
 
+<hr>
+
+
+
+
+<!-- loads the main content of the page, which is the content of the markdown file for the page. In this case, it will load the content of the content/_index.md file. -->
+<main class="posts">
+  <section class="boxed">
+    <h1 class="page-title">{{ .Title }}</h1>
+  {{ .Content }}
+</main>
 
 <footer class="site-footer">
- <div class="footer">
-    Powered by <a href="https://gohugo.io/">Hugo</a> with
-    <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Console Theme</a>. 
-</div>
-  <p class="footer-left">© {{ now.Format "2006" }} {{ .Site.Params.author }}. All rights reserved.</p>
+
+  
+<!-- Top part of the footer (Theme credits) -->
+  <div class="footer">
+
+  </div>
+
+  <!-- Main flex container holding Left and Right elements -->
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+    
+    <!-- Left Side: Copyright text -->
+    <p class="footer-left" style="margin: 0; text-align: left;">
+      © {{ now.Format "2006" }} {{ .Site.Params.author }}. All rights reserved.
+      <br>
+      Powered by <a href="https://gohugo.io/">Hugo</a> with
+      <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Console Theme</a>.
+    </p>
+    
+    <!-- Right Side: Affiliation Logos -->
+<div class="affiliations" style="display: flex; align-items: center; gap: 15px;">
+  
+  <!-- University of Sheffield Logo Link -->
+  <a href="https://www.sheffield.ac.uk/" target="_blank" rel="noopener noreferrer" style="display: inline-block; line-height: 0;">
+    <img src="/img/Medium-UOSLogo_Primary_Violet_RGB.jpg" 
+         alt="University of Sheffield" 
+         style="height: 35px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(70%); transition: filter 0.3s;" 
+         onmouseover="this.style.filter='none'" 
+         onmouseout="this.style.filter='grayscale(100%) opacity(70%)'">
+  </a>
+  
+  <!-- Wellcome Trust Logo Link -->
+  <a href="https://wellcome.org/" target="_blank" rel="noopener noreferrer" style="display: inline-block; line-height: 0;">
+    <img src="/img/_Wellcome_logo_Off_Black.png" 
+         alt="Wellcome Trust" 
+         style="height: 35px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(70%); transition: filter 0.3s;" 
+         onmouseover="this.style.filter='none'" 
+         onmouseout="this.style.filter='grayscale(100%) opacity(70%)'">
+  </a>
+
+</div>  
+
+  </div>
+  
+
 </footer>
+
 {{ end }}

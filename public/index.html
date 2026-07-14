@@ -23,13 +23,13 @@
       <![endif]-->
        
       <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="Peter Lord - Phd Student @ University of Sheffield" />
-    <meta property="og:title" content="" />
+    <meta property="og:title" content="About Me" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://localhost:1313/" />
 
 
-<meta name="twitter:title" content=""/>
+<meta name="twitter:title" content="About Me"/>
 <meta name="twitter:description" content="Personal website of Peter Lord. Research in Social Networks in Agent-Based Models (ABMs) for public health economics."/>
 </head>
 <body class="terminal">
@@ -46,17 +46,9 @@
                 
                   
                     <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="http://localhost:1313/about/">
-                        <span property="name">About</span></a>
-                        <meta property="position" content="1" />
-                      </li>
-                  
-                
-                  
-                    <li property="itemListElement" typeof="ListItem">
                         <a property="item" typeof="WebPage" href="http://localhost:1313/cv/">
                         <span property="name">CV</span></a>
-                        <meta property="position" content="2" />
+                        <meta property="position" content="1" />
                       </li>
                   
                 
@@ -64,6 +56,14 @@
                     <li property="itemListElement" typeof="ListItem">
                         <a property="item" typeof="WebPage" href="http://localhost:1313/research/">
                         <span property="name">Research</span></a>
+                        <meta property="position" content="2" />
+                      </li>
+                  
+                
+                  
+                    <li property="itemListElement" typeof="ListItem">
+                        <a property="item" typeof="WebPage" href="http://localhost:1313/blog/">
+                        <span property="name">Blog</span></a>
                         <meta property="position" content="3" />
                       </li>
                   
@@ -104,14 +104,30 @@
     <img src="img/face.png" class="terminal-avatar" alt="Peter Lord">
   </div>
 
-  
-  <div class="affiliations-box">
-    <span class="affiliation-label">AFFILIATIONS</span>
-    <div class="logo-grid">
-      <img src="img/Medium-UOSLogo_Primary_Violet_RGB.jpg" class="affiliation-logo" alt="University Logo">
-      <img src="img/Funded_by_Wellcome_logo_off_Black.png" class="affiliation-logo" alt="Research Lab Logo">
-      
-    </div>
+    
+<div class="affiliations-box">
+  <span class="affiliation-label">AFFILIATIONS</span>
+  <div class="logo-grid">
+    
+    
+    <a href="https://www.sheffield.ac.uk/" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       style="display: inline-block; text-decoration: none !important; border: none !important; outline: none !important; background: none !important; box-shadow: none !important;">
+      <img src="img/Medium-UOSLogo_Primary_Violet_RGB.jpg" class="affiliation-logo" alt="University Logo" style="border: none !important; outline: none !important;">
+    </a>
+
+    
+    <a href="https://wellcome.org/" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       style="display: inline-block; text-decoration: none !important; border: none !important; outline: none !important; background: none !important; box-shadow: none !important;">
+      <img src="img/Funded_by_Wellcome_logo_off_Black.png" class="affiliation-logo" alt="Research Lab Logo" style="border: none !important; outline: none !important;">
+    </a>
+    
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -119,21 +135,120 @@
 <section class="hero" id="about-hero">
   <div class="boxed">
     <span class="eyebrow">Wellcome Trust PhD Researcher in Public Health Economics</span>
-    <p class="overview">
-    <br>
-      Can integrating empirical information into the generation of social networks contributes to more realistic agent-based models and better public health policy decision making?
-    </p>
-  </div>
+    <div style="border-left: 3px solid #62c4ff; padding-left: 15px; margin: 20px 0; font-family: monospace;">
+      
+      <span style="color: #62c4ff;">$ mpirun -n 4 python3 phd</span>
+  
+      
+      <p style="margin-top: 8px; font-style: italic; font-size: 1.1em; line-height: 1.6; min-height: 80px;">
+      <span id="typed-text"></span><span class="terminal-cursor">|</span>
+      </p>
+    </div>
+
+  
+  <style>
+    .terminal-cursor {
+      color: #62c4ff;
+      font-weight: bold;
+      animation: blink 1s step-start infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const text = "Can integrating empirical information into the generation of social networks contribute to more realistic agent-based models and better public health policy decision-making?";
+      const delay = 35; 
+      let i = 0;
+      const target = document.getElementById("typed-text");
+      
+      function typeWriter() {
+        if (i < text.length) {
+          target.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, delay);
+        }
+      }
+      
+      
+      setTimeout(typeWriter, 500);
+    });
+  </script>
+    </div>
 </section>
 
+<hr>
+
+
+
+
+
+<main class="posts">
+  <section class="boxed">
+    <h1 class="page-title">About Me</h1>
+  <p>I am a PhD Researcher at the University of Sheffield, funded by the Wellcome Trust. I am in the 3rd year of the <a href="https://www.pheds-dtc.ac.uk/" target="_blank" rel="noopener">Public Health Economics and Decision Sciences program</a> , and a member of the <a href="https://sarg-sheffield.ac.uk/" target="_blank" rel="noopener">Sheffield Addictions Research Group (SARG)</a> .</p>
+<p>My interdisciplinary research bridges complex systems science, social simulation, social network analysis, and health economics. I have a background in Systems and Control Engineering and I apply simulation modelling and systems science to public health policy questions in non-communicable diseases.</p>
+<h3 id="research-interests">Research Interests</h3> <ul>
+<li>Agent-Based Modelling (ABM)</li>
+<li>Social Network Analysis (SNA)</li>
+<li>Model Calibration &amp; Optimisation</li>
+<li>Health Economics &amp; Policy Evaluation</li>
+<li>Tobacco Control &amp; Substance Use</li>
+</ul>
+<p>Outside of my academic work, I am a keen musician. I play bass guitar in the Sheffield based 12-piece jazz &amp; soul collective <a href="https://www.instagram.com/mappinstcollective/" target="_blank" rel="noopener"><em>Mappin Street Collective</em></a> .</p>
+
+</main>
 
 <footer class="site-footer">
- <div class="footer">
-    Powered by <a href="https://gohugo.io/">Hugo</a> with
-    <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Console Theme</a>. 
-</div>
-  <p class="footer-left">© 2026 . All rights reserved.</p>
+
+  
+
+  <div class="footer">
+
+  </div>
+
+  
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+    
+    
+    <p class="footer-left" style="margin: 0; text-align: left;">
+      © 2026 Peter Lord. All rights reserved.
+      <br>
+      Powered by <a href="https://gohugo.io/">Hugo</a> with
+      <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Console Theme</a>.
+    </p>
+    
+    
+<div class="affiliations" style="display: flex; align-items: center; gap: 15px;">
+  
+  
+  <a href="https://www.sheffield.ac.uk/" target="_blank" rel="noopener noreferrer" style="display: inline-block; line-height: 0;">
+    <img src="/img/Medium-UOSLogo_Primary_Violet_RGB.jpg" 
+         alt="University of Sheffield" 
+         style="height: 35px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(70%); transition: filter 0.3s;" 
+         onmouseover="this.style.filter='none'" 
+         onmouseout="this.style.filter='grayscale(100%) opacity(70%)'">
+  </a>
+  
+  
+  <a href="https://wellcome.org/" target="_blank" rel="noopener noreferrer" style="display: inline-block; line-height: 0;">
+    <img src="/img/_Wellcome_logo_Off_Black.png" 
+         alt="Wellcome Trust" 
+         style="height: 35px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(70%); transition: filter 0.3s;" 
+         onmouseover="this.style.filter='none'" 
+         onmouseout="this.style.filter='grayscale(100%) opacity(70%)'">
+  </a>
+
+</div>  
+
+  </div>
+  
+
 </footer>
+
 
         
 
