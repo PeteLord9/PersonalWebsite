@@ -1,0 +1,53 @@
+<!-- Load Leaflet CSS and JS if not already in your base header -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<style>
+  /* Dark mode filter for OpenStreetMap tiles */
+  .dark-leaflet-tiles {
+    filter: invert(100%) hue-rotate(180deg) grayscale(30%) contrast(85%);
+  }
+  #myMap {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+</style>
+
+<div style="width: 100%; aspect-ratio: 2 / 1; position: relative; z-index: 1;">
+  <div id="myMap"></div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Pull variables directly from the page's Front Matter
+  const lat = {{ .Page.Params.coordinates.latitude }};
+  const lon = {{ .Page.Params.coordinates.longitude }};
+  const label = {{ .Page.Params.coordinates.label }};
+
+  const mapLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  maxZoom: 20,
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+});
+  
+  const satLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://esri.com">ESRI</a>'
+  });
+
+  const map = L.map('myMap', {
+    layers: [mapLayer],
+    center: [lat, lon],
+    zoom: 15, 
+    scrollWheelZoom: false,
+  });
+
+  const markerLayer = L.marker([lat, lon]).addTo(map).bindPopup(label).openPopup();
+  
+  L.control.layers({Map: mapLayer, Satellite: satLayer}, {Markers: markerLayer}).addTo(map);
+
+  setTimeout(() => { map.invalidateSize(); }, 200);
+});
+</script>

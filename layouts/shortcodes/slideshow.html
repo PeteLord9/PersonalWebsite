@@ -1,0 +1,47 @@
+<!-- The Slideshow Markup -->
+<div class="siema-wrapper">
+  <div class="siema">
+    
+    <!-- 1. Fetch and fingerprint the lone root image -->
+    {{ $rootImg := resources.Get "img/calibration_waves_clean.png" }}
+    {{ if $rootImg }}
+      {{ $fingerprinted := $rootImg | resources.Fingerprint }}
+      <div><img src="{{ $fingerprinted.RelPermalink }}" alt="Calibration Waves Clean"></div>
+    {{ end }}
+
+    <!-- 2. Automatically find and loop through all images inside the subfolder -->
+    {{ $subfolderImages := resources.Match "img/website_egonet_vis/*.png" }}
+    {{ range $subfolderImages }}
+      {{ $fingerprinted := . | resources.Fingerprint }}
+      <div><img src="{{ $fingerprinted.RelPermalink }}" alt="{{ .Name }}"></div>
+    {{ end }}
+
+  </div>
+</div>
+
+<div class="slider-controls">
+  <button class="prev">← Prev</button>
+  <button class="next">Next →</button>
+</div>
+
+<!-- Load Siema from our assets -->
+{{ $siema := resources.Get "js/siema.min.js" | fingerprint }}
+<script src="{{ $siema.RelPermalink }}"></script>
+
+<!-- Initialize the script -->
+<script>
+  const mySiema = new Siema({
+    selector: '.siema',
+    duration: 200,
+    easing: 'ease-out',
+    perPage: 1,
+    startIndex: 0,
+    draggable: true,
+    multipleDrag: true,
+    threshold: 20,
+    loop: true
+  });
+
+  document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+  document.querySelector('.next').addEventListener('click', () => mySiema.next());
+</script>

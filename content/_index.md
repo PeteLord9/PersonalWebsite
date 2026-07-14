@@ -1,0 +1,1 @@
+I am a PhD Researcher at the University of Sheffield, funded by the Wellcome Trust. I am in the 3rd year of the [Public Health Economics and Decision Sciences program](https://www.pheds-dtc.ac.uk/), and a member of the [Sheffield Addictions Research Group (SARG)](https://sarg-sheffield.ac.uk/).

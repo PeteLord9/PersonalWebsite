@@ -1,0 +1,46 @@
+{{ define "main" }}
+
+
+<!-- Image and Affiliations -->
+
+<section id="about" class="bg-alt" style="border-top: 1px solid rgba(255,255,255,0.1);">
+  <div class="bio-section">
+    <div class="bio-image">
+      <div class="profile-header-container">
+  
+  <!-- Left Side: Your Main Portrait -->
+  <div class="main-portrait-box">
+    <img src="img/face.png" class="terminal-avatar" alt="Peter Lord">
+  </div>
+
+  <!-- Right Side: Your Affiliations Grid -->
+  <div class="affiliations-box">
+    <span class="affiliation-label">AFFILIATIONS</span>
+    <div class="logo-grid">
+      <img src="img/Medium-UOSLogo_Primary_Violet_RGB.jpg" class="affiliation-logo" alt="University Logo">
+      <img src="img/Funded_by_Wellcome_logo_off_Black.png" class="affiliation-logo" alt="Research Lab Logo">
+      <!-- Add as many logo images from your static folder as you need -->
+    </div>
+  </div>
+</section>
+
+<!-- Hero Section -->
+<section class="hero" id="about-hero">
+  <div class="boxed">
+    <span class="eyebrow">{{ .Site.Params.wellcome_trust_tagline }}</span>
+    <p class="overview">
+    <br>
+      Can integrating empirical information into the generation of social networks contributes to more realistic agent-based models and better public health policy decision making?
+    </p>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+ <div class="footer">
+    Powered by <a href="https://gohugo.io/">Hugo</a> with
+    <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Console Theme</a>. 
+</div>
+  <p class="footer-left">© {{ now.Format "2006" }} {{ .Site.Params.author }}. All rights reserved.</p>
+</footer>
+{{ end }}

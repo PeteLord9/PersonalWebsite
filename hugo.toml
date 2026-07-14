@@ -1,0 +1,41 @@
+baseURL = 'https://peterlord.uk/'
+languageCode = 'en-gb'
+title = 'Peter Lord - Phd Student @ University of Sheffield'
+theme = "hugo-theme-console"
+avatar = "img/face_icon.png"
+
+[params]
+  description = "Personal website of Peter Lord. Research in Social Networks in Agent-Based Models (ABMs) for public health economics."
+  # This is your new custom parameter for the small header icon
+  headerAvatar = "img/face_icon.png"
+  # author = "Peter Lord"
+  wellcome_trust_tagline = "Wellcome Trust PhD Researcher in Public Health Economics"
+  animateStyle = "animate-fade-up" # Animation style for content
+
+
+[[params.navlinks]]
+  name = "About"
+  url = "/about/"
+
+[[params.navlinks]]
+  name = "CV"
+  url = "/cv/"
+
+[[params.navlinks]]
+  name = "Research"
+  url = "/research/"
+
+[[params.navlinks]]
+  name = "Contact"
+  url = "/contact/"
+
+[[params.navlinks]]
+  name = "icon"
+  url = "#"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about.md"
+    weight = 1

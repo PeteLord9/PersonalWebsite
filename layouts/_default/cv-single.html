@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="post">
+    <h1>{{ .Title }}</h1>
+    
+    <br>
+
+    <!-- 1. This loops through your custom timeline front matter -->
+    {{ if .Params.timeline }}
+    <div class="custom-timeline">
+        {{ range .Params.timeline }}
+        <div class="timeline-item" style="margin-bottom: 25px;">
+            <div class="timeline-date" style="font-weight: bold; color: var(--primary-color);">[{{ .date }}]</div>
+            <div class="timeline-title" style="font-size: 1.15rem; font-weight: bold; margin: 4px 0;">{{ .title }}</div>
+            <div class="timeline-institution" style="font-style: italic; color: var(--secondary-color);">{{ .institution }}</div>
+            <div class="timeline-details" style="margin-top: 6px; line-height: 1.4;">{{ .details }}</div>
+        </div>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+
+<!-- mid line break -->
+<hr>
+
+<!-- 2. This outputs your regular markdown text (like the download link) -->
+    {{ .Content }}
+    
+    <br><hr><br>
+
+{{ end }}
