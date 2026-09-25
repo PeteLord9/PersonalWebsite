@@ -39,7 +39,7 @@ web_config <- list(
 # Define your directories
 ResultsDir <- "/home/cmp24psl/CRUK/myvirtualenv/Results/2025-11-28_1/"
 # results dir to save to cuurent working directory
-FiguresResultsDir <- paste0(getwd(), "static/img/website_egonet_vis/")
+FiguresResultsDir <- paste0(getwd(), "/assets/img/website_egonet_vis/")
 if (!dir.exists(FiguresResultsDir)) {
   dir.create(FiguresResultsDir, recursive = TRUE)
 }
@@ -159,7 +159,22 @@ plot_single_web_ego <- function(agent_id, step_number = 1, color_by = "smokingst
   # Map modern coloring attribute
   g <- g %>%
     activate(nodes) %>%
-    mutate(color_var = as.factor(.data[[color_by]]))
+    mutate(
+      color_var = case_when(
+        color_by == "smokingstatus" ~ factor(
+          smokingstatus,
+          levels = c(0, 1),
+          labels = c("Non-Smoker", "Smoker")
+        ),
+        color_by == "vapingstatus" ~ factor(
+          vapingstatus,
+          levels = c(0, 1),
+          labels = c("Non-Vaper", "Vaper")
+        ),
+        TRUE ~ factor(.data[[color_by]])
+      )
+    )
+
 
   # Configure node sizes based on distances
   sizes <- c("Ego" = 6, "Direct Alter" = 3.5, "2-Step Alter" = 2.0, "3-Step Alter" = 1.2)
@@ -176,21 +191,25 @@ plot_single_web_ego <- function(agent_id, step_number = 1, color_by = "smokingst
 
   p <- ggraph(g, layout = "stress") +
     geom_edge_arc(aes(start_cap = label_rect(node1.node_type), end_cap = label_rect(node2.node_type)),
-      color = "grey60", alpha = 0.25, strength = 0.2, width = 0.35,
+      color = "black", alpha = 0.75, strength = 0.2, width = 0.35,
       arrow = arrow(angle = 18, length = unit(2.0, "mm"), type = "closed")
     ) +
     geom_node_point(aes(color = color_var, size = node_type), alpha = 0.95) +
     scale_size_manual(values = sizes, guide = "none") +
     scale_color_manual(
-      values = web_config$palettes[[color_by]],
-      name = legend_title,
-      labels = if (color_by == "smokingstatus") {
-        c("Non-Smoker", "Smoker")
-      } else if (color_by == "vapingstatus") {
-        c("Non-Vaper", "Vaper")
-      } else {
-        waiver()
-      }
+      values = switch(color_by,
+        smokingstatus = c(
+          "Non-Smoker" = "#00b0ff",
+          "Smoker" = "#ff416c"
+        ),
+        vapingstatus = c(
+          "Non-Vaper" = "#00e676",
+          "Vaper" = "#ff9100"
+        ),
+        web_config$palettes[[color_by]]
+      ),
+      drop = FALSE,
+      name = legend_title
     ) +
     # Highlight the main Ego node with a soft glowing white outer ring
     geom_node_point(aes(filter = (node_type == "Ego")), shape = 1, size = 8, stroke = 1.0, color = "#ffffff", alpha = 0.8) +
@@ -218,7 +237,7 @@ plot_web_ego_grid <- function(grid_size = 5, smoking_status = 1, step_number = 1
     sample_n(n_plots) %>%
     pull(microsim.init.id)
 
-  # Generate isolated plot objects
+  # # Generate isolated plot objects
   plot_list <- lapply(sampled_agents, function(id) {
     plot_single_web_ego(id, step_number = step_number, color_by = color_by)
   })
@@ -237,8 +256,10 @@ plot_web_ego_grid <- function(grid_size = 5, smoking_status = 1, step_number = 1
         legend.box = "horizontal",
         legend.background = element_rect(fill = "#fafdfe", color = NA),
         legend.key = element_rect(fill = "#fafdfe", color = NA),
-        legend.title = element_text(color = "#fafdfe", face = "bold", size = 14),
-        legend.text = element_text(color = "#fafdfe", size = 14)
+        legend.title = element_text(color = "#fafdfe", face = "bold", size = 30),
+        legend.text = element_text(color = "#fafdfe", size = 28),
+        legend.key.width = unit(1.2, "cm"),
+        legend.key.height = unit(0.7, "cm")
       )
     )
 
@@ -320,7 +341,7 @@ for (scenario in export_scenarios) {
   ggsave(
     filename = paste0(FiguresResultsDir, "web_ego_", scenario$name, ".svg"),
     plot = p_grid,
-    width = 16, height = 9,
+    width = 16, height = 16,
     bg = "transparent"
   )
 
@@ -328,7 +349,7 @@ for (scenario in export_scenarios) {
   ggsave(
     filename = paste0(FiguresResultsDir, "web_ego_", scenario$name, ".png"),
     plot = p_grid,
-    width = 16, height = 9,
+    width = 16, height = 16,
     dpi = 160,
     bg = "transparent"
   )
