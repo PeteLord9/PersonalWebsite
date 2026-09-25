@@ -1,6 +1,6 @@
 +++
 title = 'Title of the post'
-date = "2006-01-02"
+date = "yyyy-mm-dd"
 draft = true
 description = "A short description of the post"
 tags = ["tag1", "tag2", "tag3"]
