@@ -1,6 +1,6 @@
 +++
 title = 'Title of the post'
-date = yyyy-mm-dd
+date = "2006-01-02"
 draft = true
 description = "A short description of the post"
 tags = ["tag1", "tag2", "tag3"]
@@ -36,4 +36,3 @@ def hello_world():
 
 ---
 ^that's a horizontal rule
-
